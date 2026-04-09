@@ -1,25 +1,24 @@
-import tkinter as tk
-from booking import open_booking
-
 def open_dashboard(user):
     root = tk.Tk()
     root.title("Dashboard")
-    root.geometry("600x400")
-    root.configure(bg="#a7c7e7")  # gray-blue
+    root.geometry("500x400")
+    root.configure(bg="#6fa8dc")  # blue-gray
 
-    tk.Label(root, text=f"Welcome {user}", font=("Arial", 16),
-             bg="#a7c7e7").pack()
+    tk.Label(root, text="🚆 Railway System",
+             font=("Arial", 18, "bold"),
+             bg="#6fa8dc").pack(pady=10)
 
-    tk.Button(root, text="Book Ticket",
-              command=lambda: open_booking(user)).pack(pady=20)
+    tk.Button(root, text="Book Ticket", width=20,
+              command=lambda: open_booking(user)).pack(pady=10)
 
-    tk.Button(root, text="View Ticket").pack()
-    tk.Button(root, text="Help").pack(side="left")
-    tk.Button(root, text="Settings").pack(side="right")
+    tk.Button(root, text="Cancel Ticket", width=20,
+              command=lambda: cancel_ticket(user)).pack(pady=10)
 
-    # Admin Info
+    tk.Button(root, text="Payment", width=20,
+              command=open_payment).pack(pady=10)
+
     tk.Label(root,
-             text="Admin: M.Nikhitha12A1, M.Dhanush12A2, M.Sathwik12A8",
-             bg="#a7c7e7").pack(side="bottom")
+             text="Admin Panel: M.Nikhitha12A1, M.Dhanush12A2, M.Sathwik12A8",
+             bg="#6fa8dc").pack(side="bottom")
 
     root.mainloop()
